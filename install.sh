@@ -12,7 +12,7 @@ NVIM_CONFIG=$(realpath ~/.config/nvim)
 
 FONT_DIR=$(realpath ~/.fonts)
 
-PACKER_DIR=$(realpath ~/.local/share/nvim/site/pack/packer/start/packer.nvim)
+PACKER_DIR=$(realpath ~/.local)/share/nvim/site/pack/packer/start/packer.nvim
 
 # packer
 if [[ ! -d ${PACKER_DIR} ]]; then
