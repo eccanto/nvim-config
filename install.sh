@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+RED="31"
+GREEN="32"
+BOLDRED="\e[1;${RED}m"
+BOLDGREEN="\e[1;${GREEN}m"
+ENDCOLOR="\e[0m"
+
+NVIM_CONFIG=$(realpath ~/.config/nvim)
+
+FONT_DIR=$(realpath ~/.fonts)
+
+PACKER_DIR=$(realpath ~/.local/share/nvim/site/pack/packer/start/packer.nvim)
+
+# packer
+if [[ ! -d ${PACKER_DIR} ]]; then
+    echo -e "${BOLDGREEN}installing packer...${ENDCOLOR}"
+    git clone https://github.com/wbthomason/packer.nvim \
+        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+fi
+
+# JetBrainsMono font
+if ! ls -A ${FONT_DIR}/JetBrains*.ttf &> /dev/null; then
+    echo -e "${BOLDGREEN}downloading JetBrainsMono font...${ENDCOLOR}"
+    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -P ${FONT_DIR}
+
+    pushd ${FONT_DIR}
+        unzip JetBrainsMono.zip
+        rm JetBrainsMono.zip
+    popd
+
+    fc-cache -f -v
+fi
+
+# ripgrep
+if ! command -v rg &> /dev/null; then
+    echo -e "${BOLDGREEN}installing ripgrep...${ENDCOLOR}"
+    sudo apt install ripgrep
+fi
+
+# fd-find
+if ! command -v fdfind &> /dev/null; then
+    echo -e "${BOLDGREEN}installing fd-find...${ENDCOLOR}"
+    sudo apt install fd-find
+fi
+
+# xclip
+if ! command -v xclip &> /dev/null; then
+    echo -e "${BOLDGREEN}installing xclip...${ENDCOLOR}"
+    sudo apt install xclip
+fi
+
+# backup
+if [[ ! -z "$(ls -A ${NVIM_CONFIG})" ]]; then
+    echo "generating a backup copy of the previous nvim configuration..."
+    mv ${NVIM_CONFIG} ${NVIM_CONFIG}.bak
+fi
+
+# nvim
+if ! command -v nvim &> /dev/null; then
+    echo -e "${BOLDGREEN}installing neovim...${ENDCOLOR}"
+    wget https://github.com/neovim/neovim/releases/download/v0.6.0/nvim-linux64.tar.gz -O- | sudo tar zxvf - -C /usr/local --strip=1
+
+    sudo mv /usr/bin/vim /usr/bin/vim_backup
+    sudo ln -s /usr/local/bin/nvim /usr/bin/vim
+fi
+
+echo -e "${BOLDGREEN}configuring neovim...${ENDCOLOR}"
+mkdir -p ${NVIM_CONFIG}
+cp -r ./nvim/* ${NVIM_CONFIG}
+
+nvim -c "autocmd User PackerComplete quitall" -c "PackerSync"
+
+# end
+echo -e "${BOLDGREEN}\nfinished.${ENDCOLOR}\n"
