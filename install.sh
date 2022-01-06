@@ -67,6 +67,7 @@ fi
 # backup
 if [[ ! -z "$(ls -A ${NVIM_CONFIG})" ]]; then
     echo "generating a backup copy of the previous nvim configuration..."
+    rm -rf ${NVIM_CONFIG}.bak
     mv ${NVIM_CONFIG} ${NVIM_CONFIG}.bak
 fi
 
@@ -86,6 +87,11 @@ mkdir -p ${NVIM_CONFIG}
 cp -r ./nvim/* ${NVIM_CONFIG}
 
 nvim -c "autocmd User PackerComplete quitall" -c "PackerSync"
+sudo nvim -c "autocmd User PackerComplete quitall" -c "PackerSync"
+
+sudo ln -s -f ${NVIM_CONFIG} /root/.config/nvim
+sudo mkdir -p /root/.local/share/nvim/site/pack/packer/start/
+sudo ln -s -f ${PACKER_DIR} /root/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # end
 echo -e "${BOLDGREEN}\nfinished.${ENDCOLOR}\n"

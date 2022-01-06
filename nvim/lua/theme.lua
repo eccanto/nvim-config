@@ -16,9 +16,13 @@ vim.cmd
 ]]
 
 vim.g.tokyonight_style = "night" -- styles: storm, night and day.
-vim.g.onedark_style = "darker"     -- styles: dark, darker, cool, deep, warm and warmer.
 vim.g.enfocado_style = "nature"    -- styles: nature and neon.
-vim.cmd("colorscheme onedark")
+
+vim.g.tokyodark_transparent_background = true
+vim.g.tokyodark_enable_italic_comment = true
+vim.g.tokyodark_enable_italic = true
+vim.g.tokyodark_color_gamma = "1.0"
+vim.cmd("colorscheme tokyodark")
 
 function _G.make_codeart_transparent()
   vim.cmd("highlight Normal guibg=NONE guifg=NONE")
@@ -28,13 +32,11 @@ function _G.make_codeart_transparent()
   vim.cmd("highlight SignColumn guibg=NONE guifg=NONE")
   vim.cmd("highlight EndOfBuffer guibg=NONE guifg=NONE")
 
-
   vim.cmd("highlight NvimTreeNormal guibg=NONE guifg=NONE")
   vim.cmd("highlight NvimTreeNormalNc guibg=NONE guifg=NONE")
   vim.cmd("highlight NvimTreeEndOfBuffer guibg=NONE guifg=NONE")
   vim.cmd("highlight NvimTreeFolderIcon guibg=NONE guifg=NONE")
   vim.cmd("highlight NvimTreeOpenedFolderName guibg=NONE guifg=NONE")
-
 
   vim.cmd("highlight BufferLineFill guibg=NONE guifg=NONE")
   vim.cmd("highlight BufferLineDiagnostics guibg=NONE guifg=NONE")

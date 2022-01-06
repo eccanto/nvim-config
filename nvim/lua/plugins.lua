@@ -9,7 +9,9 @@ return require("packer").startup({function()
   use { "bluz71/vim-nightfly-guicolors" }
   use { "bluz71/vim-moonfly-colors" }
   use { "shaunsingh/nord.nvim" }
-  use { "navarasu/onedark.nvim" }
+
+  use { "tiagovla/tokyodark.nvim" }
+
   use { "wuelnerdotexe/vim-enfocado" }
 
   -- TrueZen.nvim is a Neovim plugin that aims to provide a cleaner and less cluttered interface
