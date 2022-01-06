@@ -77,7 +77,7 @@ if ! command -v nvim &> /dev/null; then
     install_nvim
 fi
 
-if [[ "$(nvim --version | grep -m 1 -Po 'NVIM (v[\d.]+)')" < "NVIM v0.6.0" ]]; then
+if [[ "$(/usr/bin/nvim --version | grep -m 1 -Po 'NVIM (v[\d.]+)')" < "NVIM v0.6.0" ]]; then
     echo -e "${BOLDGREEN}updating neovim...${ENDCOLOR}"
     install_nvim
 fi
