@@ -10,6 +10,7 @@ return require("packer").startup({function()
   use { "bluz71/vim-moonfly-colors" }
   use { "shaunsingh/nord.nvim" }
 
+  -- theme
   use { "tiagovla/tokyodark.nvim" }
 
   use { "wuelnerdotexe/vim-enfocado" }
