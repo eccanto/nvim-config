@@ -17,6 +17,11 @@ PACKER_DIR=$(realpath ~/.local)/share/nvim/site/pack/packer/start/packer.nvim
 function install_nvim() {
     wget https://github.com/neovim/neovim/releases/download/v0.6.0/nvim-linux64.tar.gz -O- | sudo tar zxvf - -C /usr/local --strip=1
 
+    # replace current nvim
+    sudo mv /usr/bin/nvim /usr/bin/nvim_backup
+    sudo ln -s /usr/local/bin/nvim /usr/bin/nvim
+
+    # replace vim
     sudo mv /usr/bin/vim /usr/bin/vim_backup
     sudo ln -s /usr/local/bin/nvim /usr/bin/vim
 }
