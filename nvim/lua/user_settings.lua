@@ -27,3 +27,4 @@ additional_plugins = {
 -- third argument is command. and last argument is optional argument like {expr = true}.
 -- map("n", "<C-t>", ":ToggleTerm<CR>")
 -- map("t", "<C-t>", ":ToggleTerm<CR>")
+

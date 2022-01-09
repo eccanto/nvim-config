@@ -65,12 +65,12 @@ map("n", "<leader>nt", ":NvimTreeToggle<CR>")
 
 
 -- Telescope
-map("n", "<Leader>fw", ":Telescope live_grep<CR>")
+map("n", "<Leader>f", ":Telescope live_grep<CR>")
+map("n", "<Leader>m", ":Telescope media_files<CR>")
 map("n", "<Leader>gt", ":Telescope git_status<CR>")
 map("n", "<Leader>cm", ":Telescope git_commits<CR>")
 map("n", "<Leader>ff", ":Telescope find_files<CR>")
 map("n", "<Leader>fd", ":Telescope find_directories<CR>")
-map("n", "<Leader>fp", ":Telescope media_files<CR>")
 map("n", "<Leader>fb", ":Telescope buffers<CR>")
 map("n", "<Leader>fh", ":Telescope help_tags<CR>")
 map("n", "<Leader>fo", ":Telescope oldfiles<CR>")
@@ -78,11 +78,13 @@ map("n", "<Leader>th", ":Telescope colorscheme<CR>")
 
 
 -- Dashboard
-map("n", "<Leader>db", ":Dashboard<CR>")
-map("n", "<Leader>fn", ":DashboardNewFile<CR>")
-map("n", "<Leader>bm", ":DashboardJumpMarks<CR>")
-map("n", "<C-s>l", ":SessionLoad<CR>")
-map("n", "<C-s>s", ":SessionSave<CR>")
+map("n", "<Leader>do", ":Dashboard<CR>")
+map("n", "<Leader>dn", ":DashboardNewFile<CR>")
+map("n", "<Leader>dm", ":DashboardJumpMarks<CR>")
+map("n", "<C-x>l", ":SessionLoad<CR>")
+map("n", "<C-x>s", ":SessionSave<CR>")
+map("n", "<C-s>", ":w<CR>")
+map("n", "<C-w>", ":tabclose<CR>")
 
 
 -- Lsp
@@ -136,6 +138,8 @@ function _G.set_terminal_keymaps()
 end
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
+map("n", "<leader>tp", "<cmd>lua _python_toggle()<CR>")
+map("n", "<leader>tl", "<cmd>lua _lazygit_toggle()<CR>")
 
 -- Remove unnecessary white spaces.
 map("n", "<leader>cw", ":StripWhitespace<CR>")
