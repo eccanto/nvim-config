@@ -5,7 +5,6 @@ local function map(mode, lhs, rhs, opts)
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-
 -- Map leader key to space.
 vim.g.mapleader = " "
 
@@ -22,10 +21,10 @@ map("n", "<A-h>", "<C-w><C-h>")
 
 
 -- Buffer resizing.
-map("n", "<S-h>", ":call ResizeLeft(3)<CR><Esc>")
-map("n", "<S-l>", ":call ResizeRight(3)<CR><Esc>")
-map("n", "<S-k>", ":call ResizeUp(1)<CR><Esc>")
-map("n", "<S-j>", ":call ResizeDown(1)<CR><Esc>")
+map("n", "<C-h>", ":call ResizeLeft(3)<CR><Esc>")
+map("n", "<C-l>", ":call ResizeRight(3)<CR><Esc>")
+map("n", "<C-k>", ":call ResizeUp(1)<CR><Esc>")
+map("n", "<C-j>", ":call ResizeDown(1)<CR><Esc>")
 
 
 -- Buffer switching.
@@ -84,8 +83,7 @@ map("n", "<Leader>dm", ":DashboardJumpMarks<CR>")
 map("n", "<C-x>l", ":SessionLoad<CR>")
 map("n", "<C-x>s", ":SessionSave<CR>")
 map("n", "<C-s>", ":w<CR>")
-map("n", "<C-w>", ":tabclose<CR>")
-
+map("n", "<C-w>", ":bd<CR>")
 
 -- Lsp
 local lsp_opts = { noremap=true, silent=true }
@@ -131,10 +129,10 @@ function _G.set_terminal_keymaps()
   map("t", "<A-k>", "<c-\\><c-n><c-w>k")
   map("t", "<A-l>", "<c-\\><c-n><c-w>l")
 
-  map("t", "<S-h>", "<c-\\><C-n>:call ResizeLeft(3)<CR>")
-  map("t", "<S-j>", "<c-\\><C-n>:call ResizeDown(1)<CR>")
-  map("t", "<S-k>", "<c-\\><C-n>:call ResizeUp(1)<CR>")
-  map("t", "<S-l>", "<c-\\><C-n>:call ResizeRight(3)<CR>")
+  map("n", "<C-h>", "<c-\\><C-n>:call ResizeLeft(3)<CR>")
+  map("n", "<C-j>", "<c-\\><C-n>:call ResizeDown(1)<CR>")
+  map("n", "<C-k>", "<c-\\><C-n>:call ResizeUp(1)<CR>")
+  map("n", "<C-l>", "<c-\\><C-n>:call ResizeRight(3)<CR>")
 end
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
@@ -156,3 +154,10 @@ map("v", "ct", ":'<,'>CommentToggle<CR>")
 
 -- Code formatter.
 map("n", "<leader>fr", ":Neoformat<CR>", lsp_opts)
+
+-- any-jump
+map("n", "<leader>jd", ":AnyJump<CR>")             -- Jump to definition under cursor
+map("v", "<leader>jd", ":AnyJumpVisual<CR>")       -- Jump to definition under cursor
+map("n", "<leader>jb", ":AnyJumpBack<CR>")         -- open previous opened file (after jump)
+map("n", "<leader>jo", ":AnyJumpLastResults<CR>")  -- open last closed search window again
+

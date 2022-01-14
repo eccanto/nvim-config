@@ -14,7 +14,7 @@ toggle_term.setup {
   close_on_exit = true, -- close the terminal window when the process exits
   float_opts = {
     border = "curved",
-    width = 120,
+    width = 220,
     height = 50,
     winblend = 3,
     highlights = {

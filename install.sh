@@ -83,6 +83,11 @@ if [[ "${NVIM_VERSION}" < "NVIM v0.6.0" ]]; then
     install_nvim
 fi
 
+# python plugins
+pip3 install -U pynvim
+pip3 install --user -U jedi
+
+# configure nvim
 echo -e "${BOLDGREEN}configuring neovim...${ENDCOLOR}"
 mkdir -p ${NVIM_CONFIG}
 cp -r ./nvim/* ${NVIM_CONFIG}

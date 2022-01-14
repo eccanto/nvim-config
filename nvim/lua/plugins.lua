@@ -4,11 +4,19 @@ local user_settings_file = require("../user_settings")
 return require("packer").startup({function()
   use { "wbthomason/packer.nvim" }
 
+  -- python
+  use {
+    'davidhalter/jedi-vim'
+  }
+
   -- Color schemes.
   use { "folke/tokyonight.nvim" }
   use { "bluz71/vim-nightfly-guicolors" }
   use { "bluz71/vim-moonfly-colors" }
   use { "shaunsingh/nord.nvim" }
+
+  -- find definitios
+  use { "pechorin/any-jump.vim" }
 
   -- theme
   use { "tiagovla/tokyodark.nvim" }
@@ -366,6 +374,8 @@ return require("packer").startup({function()
     "artart222/vim-resize",
     event = "BufEnter"
   }
+
+  use { "mg979/vim-visual-multi" }
 
   for _, plugin in pairs(additional_plugins) do
     if type(plugin) == "string" then
