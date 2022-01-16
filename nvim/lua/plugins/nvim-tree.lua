@@ -49,7 +49,7 @@ nvimtree.setup {
     }
   },
   view = {
-    width = "15%",
+    width = "20%",
     side = "left",
     auto_resize = true,
     mappings = {

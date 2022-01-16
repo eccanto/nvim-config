@@ -71,6 +71,13 @@ if [[ ! -z "$(ls -A ${NVIM_CONFIG})" ]]; then
     mv ${NVIM_CONFIG} ${NVIM_CONFIG}.bak
 fi
 
+# mdr
+if ! command -v mdr &> /dev/null; then
+    echo -e "${BOLDGREEN}installing mdr...${ENDCOLOR}"
+    sudo wget https://github.com/MichaelMure/mdr/releases/download/v0.2.5/mdr_linux_amd64 -O /usr/bin/mdr
+    sudo chmod +x /usr/bin/mdr
+fi
+
 # nvim
 if ! command -v nvim &> /dev/null; then
     echo -e "${BOLDGREEN}installing neovim...${ENDCOLOR}"

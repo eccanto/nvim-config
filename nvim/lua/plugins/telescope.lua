@@ -48,7 +48,7 @@ if os == "Linux" then
         "--glob=!.git/",
       },
       prompt_prefix = "   ",
-      selection_caret = " ",
+      selection_caret = " ",
     },
     pickers = {
       find_files = {
@@ -87,7 +87,7 @@ elseif os == "Darwin" then
         "--glob=!.git/",
       },
       prompt_prefix = "   ",
-      selection_caret = " ",
+      selection_caret = " ",
     },
     pickers = {
       find_files = {
@@ -120,7 +120,7 @@ else
         "--glob=!.git/",
       },
       prompt_prefix = "   ",
-      selection_caret = " ",
+      selection_caret = " ",
     },
     pickers = {
       find_files = {

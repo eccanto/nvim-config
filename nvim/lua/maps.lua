@@ -64,15 +64,15 @@ map("n", "<leader>nt", ":NvimTreeToggle<CR>")
 
 
 -- Telescope
-map("n", "<Leader>f", ":Telescope live_grep<CR>")
-map("n", "<Leader>m", ":Telescope media_files<CR>")
-map("n", "<Leader>gt", ":Telescope git_status<CR>")
-map("n", "<Leader>cm", ":Telescope git_commits<CR>")
-map("n", "<Leader>ff", ":Telescope find_files<CR>")
-map("n", "<Leader>fd", ":Telescope find_directories<CR>")
-map("n", "<Leader>fb", ":Telescope buffers<CR>")
-map("n", "<Leader>fh", ":Telescope help_tags<CR>")
-map("n", "<Leader>fo", ":Telescope oldfiles<CR>")
+map("n", "<Leader>tg", ":Telescope live_grep<CR>")
+map("n", "<Leader>tm", ":Telescope media_files<CR>")
+map("n", "<Leader>ts", ":Telescope git_status<CR>")
+map("n", "<Leader>tc", ":Telescope git_commits<CR>")
+map("n", "<Leader>tf", ":Telescope find_files<CR>")
+map("n", "<Leader>td", ":Telescope find_directories<CR>")
+map("n", "<Leader>tb", ":Telescope buffers<CR>")
+map("n", "<Leader>tt", ":Telescope help_tags<CR>")
+map("n", "<Leader>to", ":Telescope oldfiles<CR>")
 map("n", "<Leader>th", ":Telescope colorscheme<CR>")
 
 
@@ -84,6 +84,12 @@ map("n", "<C-x>l", ":SessionLoad<CR>")
 map("n", "<C-x>s", ":SessionSave<CR>")
 map("n", "<C-s>", ":w<CR>")
 map("n", "<C-w>", ":bd<CR>")
+
+
+-- tabs
+map("n", "<C-m>", ":tabedit %<CR>")
+map("n", "<C-x>", ":tabclose<CR>")
+
 
 -- Lsp
 local lsp_opts = { noremap=true, silent=true }
@@ -105,22 +111,6 @@ map("n", "]d", ":lua vim.lsp.diagnostic.goto_next()<CR>", lsp_opts)
 map("n", "<leader>q", ":lua vim.lsp.diagnostic.set_loclist()<CR>", lsp_opts)
 
 
--- Dap
-map("n", "<F5>", ":lua require(\"dap\").continue()<CR>")
-map("n", "<leader>te", ":lua require(\"dap\").terminate()<CR>")
-map("n", "<leader>br", ":lua require(\"dap\").toggle_breakpoint()<CR>")
-map("n", "<leader>Br", ":lua require(\"dap\").set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
-map("n", "<leader>lp", ":lua require(\"dap\").set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
-map("n", "<F10>", ":lua require(\"dap\").step_over()<CR>")
-map("n", "<F11>", ":lua require(\"dap\").step_into()<CR>")
-map("n", "<F12>", ":lua require(\"dap\").step_out()<CR>")
-map("n", "<leader>sb", ":lua require(\"dap\").step_back()<CR>")
-map("n", "<leader>rc", ":lua require(\"dap\").run_to_cursor()<CR>")
-map("n", "<leader>ro", ":lua require(\"dap\").repl.open()<CR>")
-map("n", "<leader>dt", ":lua require(\"dapui\").toggle()<CR>")
-map("n", "<leader>dl", ":lua require(\"dap\").run_last()<CR>")
-
-
 -- ToggleTerm
 function _G.set_terminal_keymaps()
   map("t", "<esc>", "<C-\\><C-n>")
@@ -136,8 +126,10 @@ function _G.set_terminal_keymaps()
 end
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
-map("n", "<leader>tp", "<cmd>lua _python_toggle()<CR>")
-map("n", "<leader>tl", "<cmd>lua _lazygit_toggle()<CR>")
+-- ToggleTerm - lazy functions
+map("n", "<leader>cp", "<cmd>lua _python_toggle()<CR>")
+map("n", "<leader>cl", "<cmd>lua _lazygit_toggle()<CR>")
+map("n", "<leader>cm", "<cmd>lua _mdr_toggle()<CR>")
 
 -- Remove unnecessary white spaces.
 map("n", "<leader>cw", ":StripWhitespace<CR>")
@@ -160,4 +152,7 @@ map("n", "<leader>jd", ":AnyJump<CR>")             -- Jump to definition under c
 map("v", "<leader>jd", ":AnyJumpVisual<CR>")       -- Jump to definition under cursor
 map("n", "<leader>jb", ":AnyJumpBack<CR>")         -- open previous opened file (after jump)
 map("n", "<leader>jo", ":AnyJumpLastResults<CR>")  -- open last closed search window again
+
+-- markdown
+map("n", "<leader>m", ":PreviewMarkdown right<CR>")
 

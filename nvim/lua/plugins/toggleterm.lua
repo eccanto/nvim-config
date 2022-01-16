@@ -40,3 +40,12 @@ function _lazygit_toggle()
     lazygit:toggle()
 end
 
+-- mdr
+
+function _mdr_toggle()
+    local filepath = vim.api.nvim_buf_get_name(0)
+    local mdr = Terminal:new({ cmd = "mdr " .. filepath, hidden = true })
+
+    mdr:toggle()
+end
+

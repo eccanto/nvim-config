@@ -18,6 +18,9 @@ return require("packer").startup({function()
   -- find definitios
   use { "pechorin/any-jump.vim" }
 
+  -- markdown
+  use { "skanehira/preview-markdown.vim" }
+
   -- theme
   use { "tiagovla/tokyodark.nvim" }
 
@@ -225,23 +228,6 @@ return require("packer").startup({function()
     after = "nvim-lspconfig",
     config = function ()
       require("lsp_signature").setup()
-    end
-  }
-
-  -- TODO: Do better lazyloading here for dap.
-  use {
-    "mfussenegger/nvim-dap",
-    event = "BufRead",
-  }
-  use {
-    "Pocco81/DAPInstall.nvim",
-    after = "nvim-dap"
-  }
-  use {
-    "rcarriga/nvim-dap-ui",
-    after = "DAPInstall.nvim",
-    config = function ()
-      require("plugins/dap")
     end
   }
 
