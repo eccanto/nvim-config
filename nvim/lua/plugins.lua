@@ -9,6 +9,11 @@ return require("packer").startup({function()
     'davidhalter/jedi-vim'
   }
 
+  -- robotframework
+  use {
+    'rasjani/robotframework-vim'
+  }
+
   -- Color schemes.
   use { "folke/tokyonight.nvim" }
   use { "bluz71/vim-nightfly-guicolors" }
