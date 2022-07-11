@@ -15,7 +15,7 @@ FONT_DIR=$(realpath ~/.fonts)
 PACKER_DIR=$(realpath ~/.local)/share/nvim/site/pack/packer/start/packer.nvim
 
 function install_nvim() {
-    wget https://github.com/neovim/neovim/releases/download/v0.6.0/nvim-linux64.tar.gz -O- | sudo tar zxvf - -C /usr/local --strip=1
+    wget https://github.com/neovim/neovim/releases/download/v0.7.2/nvim-linux64.tar.gz -O- | sudo tar zxvf - -C /usr/local --strip=1
 
     # replace current nvim
     sudo mv /usr/bin/nvim /usr/bin/nvim_backup || true
@@ -85,7 +85,7 @@ if ! command -v nvim &> /dev/null; then
 fi
 
 NVIM_VERSION=$(nvim --version | grep -m 1 -Po 'NVIM (v[\d.]+)')
-if [[ "${NVIM_VERSION}" < "NVIM v0.6.0" ]]; then
+if [[ "${NVIM_VERSION}" < "NVIM v0.7.2" ]]; then
     echo -e "${BOLDGREEN}updating neovim: ${NVIM_VERSION}...${ENDCOLOR}"
     install_nvim
 fi
