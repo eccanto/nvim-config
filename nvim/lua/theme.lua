@@ -32,12 +32,6 @@ function _G.make_codeart_transparent()
   vim.cmd("highlight SignColumn guibg=NONE guifg=NONE")
   vim.cmd("highlight EndOfBuffer guibg=NONE guifg=NONE")
 
-  vim.cmd("highlight NvimTreeNormal guibg=NONE guifg=NONE")
-  vim.cmd("highlight NvimTreeNormalNc guibg=NONE guifg=NONE")
-  vim.cmd("highlight NvimTreeEndOfBuffer guibg=NONE guifg=NONE")
-  vim.cmd("highlight NvimTreeFolderIcon guibg=NONE guifg=NONE")
-  vim.cmd("highlight NvimTreeOpenedFolderName guibg=NONE guifg=NONE")
-
   vim.cmd("highlight BufferLineFill guibg=NONE guifg=NONE")
   vim.cmd("highlight BufferLineDiagnostics guibg=NONE guifg=NONE")
   vim.cmd("highlight BufferLineTab guibg=NONE guifg=NONE")

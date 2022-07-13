@@ -59,9 +59,9 @@ map('n', '<leader>pr', ':PackerClean<CR>')
 map('n', '<leader>ps', ':PackerSync<CR>')
 map('n', '<leader>pc', ':PackerCompile<CR>')
 
--- NvimTree toggle
-map("n", "<leader>nt", ":NvimTreeToggle<CR>")
-
+-- Neotree toggle
+map("n", "<leader>nc", "::Neotree filesystem close<CR>")
+map("n", "<leader>ns", "::Neotree filesystem show<CR>")
 
 -- Telescope
 map("n", "<Leader>tg", ":Telescope live_grep<CR>")

@@ -14,6 +14,9 @@ local NoWhitespace = exec(
     true
 )
 
+-- Disable wrap lines
+vim.wo.wrap = false
+
 -- Decrease time of completion menu.
 opt.updatetime = 300
 
@@ -43,7 +46,7 @@ opt.cursorline = true
 -- Setting colorcolumn. This is set because of
 -- this (https://github.com/lukas-reineke/indent-blankline.nvim/issues/59)
 -- indent-blankline bug.
-opt.colorcolumn = "9999"
+opt.colorcolumn = "120"
 
 -- With set hidden you’re telling Neovim that you can
 -- have unsaved worked that’s not displayed on your screen.
@@ -103,7 +106,7 @@ exec([[au BufWritePre * call NoWhitespace()]], false)
 vim.cmd
 [[
 if index(argv(), ".") >= 0
-  autocmd VimEnter * NvimTreeOpen
+  autocmd VimEnter * Neotree
   bd1
 elseif len(argv()) == 0
   autocmd VimEnter * Dashboard

@@ -61,17 +61,18 @@ return require("packer").startup({function()
   }
 
   -- File explorer tree.
-  use {
-    "kyazdani42/nvim-tree.lua",
-    cmd = {
-      "NvimTreeOpen",
-      "NvimTreeFocus",
-      "NvimTreeToggle",
-    },
-    config = function()
-      require("plugins/nvim-tree")
-    end
-  }
+    use {
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v2.x",
+      requires = {
+        "nvim-lua/plenary.nvim",
+        "kyazdani42/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+      },
+      config = function()
+        require("plugins/nvim-tree")
+      end
+    }
 
   -- Bufferline.
   use {
