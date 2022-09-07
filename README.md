@@ -32,6 +32,7 @@ bash install.sh
 | s          | open in horizontal split from tree       |
 | S          | open in vertical split from tree         |
 | r          | rename from tree                         |
+| <leader>ct | comment lines                            |
 | <leader>tf | open telescope files                     |
 | <leader>cl | open lazyfit in toggle terminal          |
 | <leader>nc | close tree explorer                      |
