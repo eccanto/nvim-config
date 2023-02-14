@@ -10,10 +10,6 @@ ENDCOLOR="\e[0m"
 
 NVIM_CONFIG=$(realpath ~/.config/nvim)
 
-FONT_DIR=$(realpath ~/.fonts)
-
-PACKER_DIR=$(realpath ~/.local)/share/nvim/site/pack/packer/start/packer.nvim
-
 function install_nvim() {
     wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -O- | sudo tar zxvf - -C /usr/local --strip=1
 
@@ -25,26 +21,6 @@ function install_nvim() {
     sudo mv /usr/bin/vim /usr/bin/vim_backup || true
     sudo ln -s /usr/local/bin/nvim /usr/bin/vim
 }
-
-# packer
-if [[ ! -d ${PACKER_DIR} ]]; then
-    echo -e "${BOLDGREEN}installing packer...${ENDCOLOR}"
-    git clone https://github.com/wbthomason/packer.nvim \
-        ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-fi
-
-# JetBrainsMono font
-if ! ls -A ${FONT_DIR}/JetBrains*.ttf &> /dev/null; then
-    echo -e "${BOLDGREEN}downloading JetBrainsMono font...${ENDCOLOR}"
-    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip -P ${FONT_DIR}
-
-    pushd ${FONT_DIR}
-        unzip JetBrainsMono.zip
-        rm JetBrainsMono.zip
-    popd
-
-    fc-cache -f -v
-fi
 
 # ripgrep
 if ! command -v rg &> /dev/null; then
@@ -64,13 +40,6 @@ if ! command -v xclip &> /dev/null; then
     sudo apt install xclip
 fi
 
-# backup
-if [[ ! -z "$(ls -A ${NVIM_CONFIG})" ]]; then
-    echo "generating a backup copy of the previous nvim configuration..."
-    rm -rf ${NVIM_CONFIG}.bak
-    mv ${NVIM_CONFIG} ${NVIM_CONFIG}.bak
-fi
-
 # mdr
 if ! command -v mdr &> /dev/null; then
     echo -e "${BOLDGREEN}installing mdr...${ENDCOLOR}"
@@ -78,25 +47,43 @@ if ! command -v mdr &> /dev/null; then
     sudo chmod +x /usr/bin/mdr
 fi
 
+# install python-lsp-server
+if ! python3 -c 'import pylsp; print(pylsp.__version__)'; then
+    echo -e "${BOLDGREEN}installing python-lsp-server...${ENDCOLOR}"
+    pip3 install -U 'python-lsp-server[all]'
+fi
+
+if ! python3 -c 'import pylsp_mypy; print(pylsp_mypy.__name__)'; then
+    echo -e "${BOLDGREEN}installing pylsp-mypy...${ENDCOLOR}"
+    pip3 install -U 'pylsp-mypy'
+fi
+
+# install typescript-language-server
+if ! command -v typescript-language-server &> /dev/null; then
+    echo -e "${BOLDGREEN}installing typescript-language-server...${ENDCOLOR}"
+    sudo npm install -g typescript typescript-language-server
+fi
+
 # nvim
 echo -e "${BOLDGREEN}installing neovim...${ENDCOLOR}"
 install_nvim
+
+# backup
+if [[ ! -z "$(ls -A ${NVIM_CONFIG})" ]]; then
+    echo "generating a backup copy of the previous nvim configuration..."
+    rm -rf ${NVIM_CONFIG}.bak
+    mv ${NVIM_CONFIG} ${NVIM_CONFIG}.bak
+fi
+
+# copy configuration
+echo -e "${BOLDGREEN}configuring neovim...${ENDCOLOR}"
+git clone https://github.com/eccanto/NvChad.git ~/.config/nvim --depth 1
 
 # python plugins
 pip3 install -U pynvim
 pip3 install -U jedi
 
-# configure nvim
-echo -e "${BOLDGREEN}configuring neovim...${ENDCOLOR}"
-mkdir -p ${NVIM_CONFIG}
-cp -r ./nvim/* ${NVIM_CONFIG}
-
-nvim -c "autocmd User PackerComplete quitall" -c "PackerSync"
-sudo nvim -c "autocmd User PackerComplete quitall" -c "PackerSync"
-
 sudo ln -s -f ${NVIM_CONFIG} /root/.config/nvim
-sudo mkdir -p /root/.local/share/nvim/site/pack/packer/start/
-sudo ln -s -f ${PACKER_DIR} /root/.local/share/nvim/site/pack/packer/start/packer.nvim
 
 # end
 echo -e "${BOLDGREEN}\nfinished.${ENDCOLOR}\n"
