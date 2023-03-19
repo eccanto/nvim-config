@@ -24,6 +24,7 @@ bash install.sh
 | Ctrl+v                  | block Mode                                                                             |
 | Ctrl+r                  | redo changes                                                                           |
 | z+c                     | [folding] collapse block (move the cursor to the end of the line to restore the block) |
+| z+i                     | [folding] invert foldenable (expand/collapse all)                                      |
 | <leader>/               | [editor] comment lines                                                                 |
 | <leader>b               | [editor] create new buffer                                                             |
 | Ctrl+n                  | [cursor] select ocurrences                                                             |
