@@ -75,6 +75,11 @@ if [[ ! -z "$(ls -A ${NVIM_CONFIG})" ]]; then
     mv ${NVIM_CONFIG} ${NVIM_CONFIG}.bak
 fi
 
+# uninstall previous version
+rm -rf ~/.config/nvim
+rm -rf ~/.local/share/nvim
+rm -rf ~/.cache/nvim
+
 # copy configuration
 echo -e "${BOLDGREEN}configuring neovim...${ENDCOLOR}"
 git clone https://github.com/eccanto/NvChad.git ~/.config/nvim --depth 1
