@@ -48,14 +48,12 @@ if ! command -v mdr &> /dev/null; then
 fi
 
 # install python-lsp-server
-if ! python3 -c 'import pylsp; print(pylsp.__version__)'; then
+if ! python3 -c 'import pyright; print(pyright.__version__)'; then
+    echo -e "${BOLDGREEN}installing pyright...${ENDCOLOR}"
+    pip3 install -U pyright
+
     echo -e "${BOLDGREEN}installing python-lsp-server...${ENDCOLOR}"
     pip3 install -U 'python-lsp-server[all]'
-fi
-
-if ! python3 -c 'import pylsp_mypy; print(pylsp_mypy.__name__)'; then
-    echo -e "${BOLDGREEN}installing pylsp-mypy...${ENDCOLOR}"
-    pip3 install -U 'pylsp-mypy'
 fi
 
 # install typescript-language-server
@@ -76,6 +74,7 @@ if [[ ! -z "$(ls -A ${NVIM_CONFIG})" ]]; then
 fi
 
 # uninstall previous version
+echo -e "${BOLDGREEN}uninstalling previous neovim...${ENDCOLOR}"
 rm -rf ~/.config/nvim
 rm -rf ~/.local/share/nvim
 rm -rf ~/.cache/nvim
