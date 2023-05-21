@@ -62,6 +62,12 @@ if ! command -v typescript-language-server &> /dev/null; then
     sudo npm install -g typescript typescript-language-server
 fi
 
+# install robotframework_lsp server
+if ! command -v robotframework_ls &> /dev/null; then
+    echo -e "${BOLDGREEN}installing robotframework-lsp...${ENDCOLOR}"
+    pip3 install robotframework-lsp
+fi
+
 # nvim
 echo -e "${BOLDGREEN}installing neovim...${ENDCOLOR}"
 install_nvim
