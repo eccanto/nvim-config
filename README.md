@@ -29,6 +29,11 @@ CocInstall coc-json coc-tsserver coc-pyright
 |-------------------------|----------------------------------------------------------------------------------------|
 | Ctrl+v                  | block Mode                                                                             |
 | Ctrl+r                  | redo changes                                                                           |
+| .                       | repeat last native command                                                             |
+| cs<char><new-char>      | change delimiter, example: cs"' to change " by '                                       |
+| ds<char>                | delete delimiter, example: ds" to change "text" to text                                |
+| ysiw<char>              | to wrap a word with a delimiter, example: ysiw" to get "text"                          |
+| yss<char>               | to wrap the entire line with a delimiter, example: yss" to get "this is a text"        |
 | z+c                     | [folding] collapse block (move the cursor to the end of the line to restore the block) |
 | z+i                     | [folding] invert foldenable (expand/collapse all)                                      |
 | <leader>/               | [editor] comment lines                                                                 |
