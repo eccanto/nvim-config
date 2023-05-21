@@ -87,7 +87,7 @@ rm -rf ~/.cache/nvim
 
 # copy configuration
 echo -e "${BOLDGREEN}configuring neovim...${ENDCOLOR}"
-git clone https://github.com/eccanto/NvChad.git ~/.config/nvim --depth 1
+git clone https://github.com/eccanto/starter.git ~/.config/nvim --depth 1
 
 # python plugins
 pip3 install -U pynvim
