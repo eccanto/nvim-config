@@ -25,5 +25,13 @@
     "border": true,
     "winblend": 15,
     "borderhighlight": "FloatBorder"
+  },
+  "languageserver": {
+    "robot": {
+      "command": "robotframework_ls",
+      "rootPatterns": [],
+      "trace.server": "verbose",
+      "filetypes": ["robot"]
+    }
   }
 }
