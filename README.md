@@ -17,12 +17,6 @@ My Neovim configuration.
 bash install.sh
 ```
 
-# Install coc extensions
-
-```bash
-CocInstall coc-json coc-tsserver coc-pyright
-```
-
 ## shortcuts
 
 | map                     | description                                                                            |

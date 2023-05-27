@@ -95,5 +95,10 @@ pip3 install -U jedi
 
 sudo ln -s -f ${NVIM_CONFIG} /root/.config/nvim
 
+# setting coc package
+echo -e "${BOLDGREEN}configuring coc...${ENDCOLOR}"
+cp ./resources/coc-settings.json ~/.config/nvim/coc-settings.json
+nvim +'CocInstall coc-json coc-tsserver coc-pyright coc-yaml'
+
 # end
 echo -e "${BOLDGREEN}\nfinished.${ENDCOLOR}\n"

@@ -1,0 +1,29 @@
+{
+  "suggest.autoTrigger": "never",
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+  "coc.preferences.enableMessageDialog": true,
+  "dialog.floatBorderHighlight": "FloatBorder",
+  "suggest.floatConfig": {
+    "border": true,
+    "winblend": 15,
+    "borderhighlight": "FloatBorder"
+  },
+  "hover.floatConfig": {
+    "border": true,
+    "winblend": 15,
+    "borderhighlight": "FloatBorder"
+  },
+  "signature.floatConfig": {
+    "border": true,
+    "winblend": 15,
+    "borderhighlight": "FloatBorder"
+  },
+  "diagnostic.floatConfig": {
+    "border": true,
+    "winblend": 15,
+    "borderhighlight": "FloatBorder"
+  }
+}
