@@ -1,11 +1,12 @@
 {
-  "suggest.autoTrigger": "none",
+  "suggest.autoTrigger": "always",
   "diagnostic.errorSign": "",
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
   "diagnostic.hintSign": "",
   "coc.preferences.enableMessageDialog": true,
   "dialog.floatBorderHighlight": "FloatBorder",
+  "colors.enable": true,
   "suggest.floatConfig": {
     "border": true,
     "winblend": 15,
