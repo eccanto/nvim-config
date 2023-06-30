@@ -30,11 +30,19 @@ bash install.sh
 | yss<char>               | to wrap the entire line with a delimiter, example: yss" to get "this is a text"        |
 | z+c                     | [folding] collapse block (move the cursor to the end of the line to restore the block) |
 | z+i                     | [folding] invert foldenable (expand/collapse all)                                      |
-| <leader>/               | [editor] comment lines                                                                 |
-| <leader>b               | [editor] create new buffer                                                             |
-| Ctrl+n                  | [cursor] select ocurrences                                                             |
-| <leader>sh              | [split] split window horizontal                                                        |
-| <leader>sv              | [split] split window vertical                                                          |
+| <leader>/               | [telescope] `find` Grep (cwd)                                                          |
+| <leader>,               | [telescope] `find` Switch Buffer                                                       |
+| <leader><space>         | [telescope] `find` Files (root dir)                                                    |
+| <leader>ff              | [telescope] `find` Files (cwd)                                                         |
+| <leader>fb              | [telescope] `find` Buffers                                                             |
+| <leader>fr              | [telescope] `find` Recent (cwd)                                                        |
+| <leader>gc              | [telescope] `git` commits                                                              |
+| <leader>gs              | [telescope] `git` status                                                               |
+| <leader>sg              | [telescope] `search` Grep (cwd)                                                        |
+| <leader>sR              | [telescope] `search` Resume                                                            |
+| <leader>sb              | [telescope] `search` Buffer                                                            |
+| <leader>sc              | [telescope] `search` Command History                                                   |
+| <leader>sm              | [telescope] `search` Jump to Mark                                                      |
 | <C-A-S-Left>            | [split] resize window left                                                             |
 | <C-A-S-Right>           | [split] resize window right                                                            |
 | <C-A-S-Down>            | [split] resize window down                                                             |
@@ -54,20 +62,10 @@ bash install.sh
 | Ctrl+Up                 | [multi-cursor] create Up cursors                                                       |
 | Ctrl+Down               | [multi-cursor] create Down cursors                                                     |
 | Ctrl+t                  | [nvterm] open toggle terminal                                                          |
-| <leader>cc              | [blankline] go to current context                                                      |
 | r                       | [nvimtree] rename from explorer                                                        |
 | <leader>e               | [nvimtree] focus explorer                                                              |
 | <leader>t               | [nvimtree] toggle explorer                                                             |
 | <leader>ff              | [telescope] find file                                                                  |
-| <leader>fw              | [telescope] find word                                                                  |
-| <leader>fb              | [telescope] find buffer                                                                |
-| <leader>tk              | [telescope] find shortcuts                                                             |
-| <leader>gc              | [telescope] find git commits                                                           |
-| <leader>gs              | [telescope] find git status                                                            |
-| <leader>ra              | [lsp] rename variable                                                                  |
+| <leader>er              | [lsp] rename variable                                                                  |
 | <leader>gd              | [lsp] go to definition                                                                 |
-| <C-o>                   | [lsp] go back                                                                          |
-| <leader>gr              | [lsp] find references                                                                  |
-| <leader>K               | [lsp] display hover help popup                                                         |
-| <leader>f               | [lsp] display diagnostics popup                                                        |
-| <leader>q               | [lsp] find diagnostics window                                                          |
+| <leader>gb              | [lsp] go back                                                                          |
