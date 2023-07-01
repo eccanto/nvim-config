@@ -78,4 +78,4 @@ bash install.sh
 | <leader>ec              | [editor] comment selected lines                                                        |
 | <leader>gd              | [editor] go to definition                                                              |
 | <leader>gb              | [editor] go back                                                                       |
-| <leader>dd              | [editor] open diagnostics window                                                       |
+| <leader>fd              | [editor] open diagnostics window                                                       |
