@@ -21,15 +21,20 @@ bash install.sh
 
 | map                     | description                                                                            |
 |-------------------------|----------------------------------------------------------------------------------------|
-| Ctrl+v                  | block Mode                                                                             |
+| Ctrl+v                  | block mode                                                                             |
 | Ctrl+r                  | redo changes                                                                           |
 | .                       | repeat last native command                                                             |
 | cs<char><new-char>      | change delimiter, example: cs"' to change " by '                                       |
 | ds<char>                | delete delimiter, example: ds" to change "text" to text                                |
 | ysiw<char>              | to wrap a word with a delimiter, example: ysiw" to get "text"                          |
 | yss<char>               | to wrap the entire line with a delimiter, example: yss" to get "this is a text"        |
+| <leader>mp              | [preview] open `markdown` preview                                                      |
+| <leader>mP              | [preview] stop `markdown` preview                                                      |
+| f                       | [flit] `forward` navigation mode                                                       |
+| F                       | [flit] `backward` navigation mode                                                      |
 | z+c                     | [folding] collapse block (move the cursor to the end of the line to restore the block) |
 | z+i                     | [folding] invert foldenable (expand/collapse all)                                      |
+| <leader>sr              | [spectre] `find` and `replace`                                                         |
 | <leader>/               | [telescope] `find` Grep (cwd)                                                          |
 | <leader>,               | [telescope] `find` Switch Buffer                                                       |
 | <leader><space>         | [telescope] `find` Files (root dir)                                                    |
@@ -51,6 +56,9 @@ bash install.sh
 | <C-S-Right>             | [split] focus window right                                                             |
 | <C-S-Down>              | [split] focus window down                                                              |
 | <C-S-Up>                | [split] focus window up                                                                |
+| <leader>wv              | [split] open vertical window                                                           |
+| <leader>wh              | [split] open horizontal window                                                         |
+| <leader>wd              | [split] close window                                                                   |
 | Ctrl+d                  | [multi-cursor] find next ocurrence                                                     |
 | [selected] n            | [multi-cursor] select next ocurrence                                                   |
 | [selected] N            | [multi-cursor] select previous ocurrence                                               |
@@ -63,9 +71,11 @@ bash install.sh
 | Ctrl+Down               | [multi-cursor] create Down cursors                                                     |
 | Ctrl+t                  | [nvterm] open toggle terminal                                                          |
 | r                       | [nvimtree] rename from explorer                                                        |
-| <leader>e               | [nvimtree] focus explorer                                                              |
-| <leader>t               | [nvimtree] toggle explorer                                                             |
+| <leader>tf              | [nvimtree] focus explorer                                                              |
+| <leader>tt              | [nvimtree] toggle explorer                                                             |
 | <leader>ff              | [telescope] find file                                                                  |
-| <leader>er              | [lsp] rename variable                                                                  |
-| <leader>gd              | [lsp] go to definition                                                                 |
-| <leader>gb              | [lsp] go back                                                                          |
+| <leader>er              | [editor] rename variable                                                               |
+| <leader>ec              | [editor] comment selected lines                                                        |
+| <leader>gd              | [editor] go to definition                                                              |
+| <leader>gb              | [editor] go back                                                                       |
+| <leader>dd              | [editor] open diagnostics window                                                       |

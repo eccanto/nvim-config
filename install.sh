@@ -68,6 +68,12 @@ if ! command -v robotframework_ls &> /dev/null; then
     pip3 install robotframework-lsp
 fi
 
+# install instant-markdown-d
+if ! command -v instant-markdown-d &> /dev/null; then
+    echo -e "${BOLDGREEN}installing instant-markdown-d...${ENDCOLOR}"
+    sudo npm install -g instant-markdown-d
+fi
+
 # nvim
 echo -e "${BOLDGREEN}installing neovim...${ENDCOLOR}"
 install_nvim
