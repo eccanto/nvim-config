@@ -74,6 +74,13 @@ if ! command -v instant-markdown-d &> /dev/null; then
     sudo npm install -g instant-markdown-d
 fi
 
+# install clangd
+if ! command -v clangd &> /dev/null; then
+    echo -e "${BOLDGREEN}installing clangd...${ENDCOLOR}"
+    sudo apt-get install clangd-12
+    sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
+fi
+
 # nvim
 echo -e "${BOLDGREEN}installing neovim...${ENDCOLOR}"
 install_nvim
@@ -104,7 +111,7 @@ sudo ln -s -f ${NVIM_CONFIG} /root/.config/nvim
 # setting coc package
 echo -e "${BOLDGREEN}configuring coc...${ENDCOLOR}"
 cp ./resources/coc-settings.json ~/.config/nvim/coc-settings.json
-nvim +'CocInstall coc-json coc-tsserver coc-pyright coc-yaml coc-sh coc-highlight coc-pairs'
+nvim +'CocInstall coc-json coc-tsserver coc-pyright coc-yaml coc-sh coc-highlight coc-pairs coc-clangd'
 
 # end
 echo -e "${BOLDGREEN}\nfinished.${ENDCOLOR}\n"
