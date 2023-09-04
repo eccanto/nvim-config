@@ -50,10 +50,10 @@ fi
 # install python-lsp-server
 if ! python3 -c 'import pyright; print(pyright.__version__)'; then
     echo -e "${BOLDGREEN}installing pyright...${ENDCOLOR}"
-    pip3 install -U pyright
+    pipx install pyright
 
     echo -e "${BOLDGREEN}installing python-lsp-server...${ENDCOLOR}"
-    pip3 install -U 'python-lsp-server[all]'
+    pipx install 'python-lsp-server[all]'
 fi
 
 # install typescript-language-server
@@ -65,7 +65,7 @@ fi
 # install robotframework_lsp server
 if ! command -v robotframework_ls &> /dev/null; then
     echo -e "${BOLDGREEN}installing robotframework-lsp...${ENDCOLOR}"
-    pip3 install robotframework-lsp
+    pipx install robotframework-lsp
 fi
 
 # install instant-markdown-d
@@ -77,8 +77,8 @@ fi
 # install clangd
 if ! command -v clangd &> /dev/null; then
     echo -e "${BOLDGREEN}installing clangd...${ENDCOLOR}"
-    sudo apt-get install clangd-12
-    sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-12 100
+    sudo apt-get install clangd-16
+    sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-16 100
 fi
 
 # nvim
@@ -103,9 +103,10 @@ echo -e "${BOLDGREEN}configuring neovim...${ENDCOLOR}"
 git clone https://github.com/eccanto/starter.git ~/.config/nvim --depth 1
 
 # python plugins
-pip3 install -U pynvim
-pip3 install -U jedi
+sudo apt install python3-pynvim
+sudo apt install python3-jedi
 
+sudo mkdir -p /root/.config/
 sudo ln -s -f ${NVIM_CONFIG} /root/.config/nvim
 
 # setting coc package

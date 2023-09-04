@@ -30,8 +30,7 @@ bash install.sh
 | yss<char>               | to wrap the entire line with a delimiter, example: yss" to get "this is a text"        |
 | <leader>mp              | [preview] open `markdown` preview                                                      |
 | <leader>mP              | [preview] stop `markdown` preview                                                      |
-| f                       | [flit] `forward` navigation mode                                                       |
-| F                       | [flit] `backward` navigation mode                                                      |
+| s                       | [leap] initiate the `search`                                                           |
 | z+c                     | [folding] collapse block (move the cursor to the end of the line to restore the block) |
 | z+i                     | [folding] invert foldenable (expand/collapse all)                                      |
 | <leader>sr              | [spectre] `find` and `replace`                                                         |
