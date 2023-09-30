@@ -33,6 +33,11 @@
       "rootPatterns": [],
       "trace.server": "verbose",
       "filetypes": ["robot"]
+    },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"]
     }
   }
 }

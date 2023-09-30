@@ -81,6 +81,12 @@ if ! command -v clangd &> /dev/null; then
     sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-16 100
 fi
 
+# install bash-language-server
+if ! command -v bash-language-server &> /dev/null; then
+    echo -e "${BOLDGREEN}installing bash-language-server...${ENDCOLOR}"
+    sudo npm i -g bash-language-server
+fi
+
 # nvim
 echo -e "${BOLDGREEN}installing neovim...${ENDCOLOR}"
 install_nvim
@@ -112,7 +118,7 @@ sudo ln -s -f ${NVIM_CONFIG} /root/.config/nvim
 # setting coc package
 echo -e "${BOLDGREEN}configuring coc...${ENDCOLOR}"
 cp ./resources/coc-settings.json ~/.config/nvim/coc-settings.json
-nvim +'CocInstall coc-json coc-tsserver coc-pyright coc-yaml coc-sh coc-highlight coc-pairs coc-clangd'
+nvim +'CocInstall coc-json coc-tsserver coc-pyright coc-yaml coc-sh coc-highlight coc-pairs coc-clangd coc-sh'
 
 # end
 echo -e "${BOLDGREEN}\nfinished.${ENDCOLOR}\n"
