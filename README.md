@@ -30,12 +30,15 @@ bash install.sh
 | yss<char>               | to wrap the entire line with a delimiter, example: yss" to get "this is a text"        |
 | <leader>mp              | [preview] open `markdown` preview                                                      |
 | <leader>mP              | [preview] stop `markdown` preview                                                      |
-| s                       | [leap] initiate the `search`                                                           |
+| s                       | [leap] jump to word (require 2 chars)                                                  |
+| f/F                     | [leap] find, move the cursor to next ocurrence                                         |
+| t/T                     | [leap] till, move the cursor to next ocurrence (to the char just before)               |
 | z+c                     | [folding] collapse block (move the cursor to the end of the line to restore the block) |
 | z+i                     | [folding] invert foldenable (expand/collapse all)                                      |
 | <leader>sr              | [spectre] `find` and `replace`                                                         |
 | <leader>/               | [telescope] `find` Grep (cwd)                                                          |
 | <leader>,               | [telescope] `find` Switch Buffer                                                       |
+| <leader>r               | [telescope] `search` Resume                                                            |
 | <leader><space>         | [telescope] `find` Files (root dir)                                                    |
 | <leader>ff              | [telescope] `find` Files (cwd)                                                         |
 | <leader>fb              | [telescope] `find` Buffers                                                             |
@@ -43,7 +46,6 @@ bash install.sh
 | <leader>gc              | [telescope] `git` commits                                                              |
 | <leader>gs              | [telescope] `git` status                                                               |
 | <leader>sg              | [telescope] `search` Grep (cwd)                                                        |
-| <leader>sR              | [telescope] `search` Resume                                                            |
 | <leader>sb              | [telescope] `search` Buffer                                                            |
 | <leader>sc              | [telescope] `search` Command History                                                   |
 | <leader>sm              | [telescope] `search` Jump to Mark                                                      |
