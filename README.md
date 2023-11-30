@@ -38,17 +38,12 @@ bash install.sh
 | <leader>sr              | [spectre] `find` and `replace`                                                         |
 | <leader>/               | [telescope] `find` Grep (cwd)                                                          |
 | <leader>,               | [telescope] `find` Switch Buffer                                                       |
-| <leader>r               | [telescope] `search` Resume                                                            |
-| <leader><space>         | [telescope] `find` Files (root dir)                                                    |
-| <leader>ff              | [telescope] `find` Files (cwd)                                                         |
-| <leader>fb              | [telescope] `find` Buffers                                                             |
-| <leader>fr              | [telescope] `find` Recent (cwd)                                                        |
-| <leader>gc              | [telescope] `git` commits                                                              |
-| <leader>gs              | [telescope] `git` status                                                               |
-| <leader>sg              | [telescope] `search` Grep (cwd)                                                        |
-| <leader>sb              | [telescope] `search` Buffer                                                            |
-| <leader>sc              | [telescope] `search` Command History                                                   |
-| <leader>sm              | [telescope] `search` Jump to Mark                                                      |
+| <leader>r               | [telescope] Resume                                                                     |
+| <leader><space>         | [telescope] `search` files (root dir)                                                  |
+| <leader>sb              | [telescope] `search` buffers                                                           |
+| <leader>sf              | [telescope] `search` files                                                             |
+| <leader>sg              | [telescope] `search` grep                                                              |
+| <leader>so              | [telescope] `search` old files                                                         |
 | <C-A-S-Left>            | [split] resize window left                                                             |
 | <C-A-S-Right>           | [split] resize window right                                                            |
 | <C-A-S-Down>            | [split] resize window down                                                             |
