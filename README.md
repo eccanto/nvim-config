@@ -54,7 +54,8 @@ bash install.sh
 | <C-S-Up>                | [split] focus window up                                                                |
 | <leader>wv              | [split] open vertical window                                                           |
 | <leader>wh              | [split] open horizontal window                                                         |
-| <leader>wd              | [split] close window                                                                   |
+| <leader>wc              | [split] close window                                                                   |
+| <leader>wd              | [split] open diagnostics window                                                        |
 | Ctrl+d                  | [multi-cursor] find next ocurrence                                                     |
 | [selected] n            | [multi-cursor] select next ocurrence                                                   |
 | [selected] N            | [multi-cursor] select previous ocurrence                                               |
@@ -74,4 +75,4 @@ bash install.sh
 | <leader>ec              | [editor] comment selected lines                                                        |
 | <leader>gd              | [editor] go to definition                                                              |
 | <leader>gb              | [editor] go back                                                                       |
-| <leader>fd              | [editor] open diagnostics window                                                       |
+| <leader>fj              | [format] format JSON file                                                              |
