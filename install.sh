@@ -22,22 +22,28 @@ function install_nvim() {
     sudo ln -s /usr/local/bin/nvim /usr/bin/vim
 }
 
+# jq
+if ! command -v jq &> /dev/null; then
+    echo -e "${BOLDGREEN}installing jq...${ENDCOLOR}"
+    sudo apt install --yes jq
+fi
+
 # ripgrep
 if ! command -v rg &> /dev/null; then
     echo -e "${BOLDGREEN}installing ripgrep...${ENDCOLOR}"
-    sudo apt install ripgrep
+    sudo apt install --yes ripgrep
 fi
 
 # fd-find
 if ! command -v fdfind &> /dev/null; then
     echo -e "${BOLDGREEN}installing fd-find...${ENDCOLOR}"
-    sudo apt install fd-find
+    sudo apt install --yes fd-find
 fi
 
 # xclip
 if ! command -v xclip &> /dev/null; then
     echo -e "${BOLDGREEN}installing xclip...${ENDCOLOR}"
-    sudo apt install xclip
+    sudo apt install --yes xclip
 fi
 
 # mdr
@@ -109,8 +115,8 @@ echo -e "${BOLDGREEN}configuring neovim...${ENDCOLOR}"
 git clone https://github.com/eccanto/starter.git ~/.config/nvim --depth 1
 
 # python plugins
-sudo apt install python3-pynvim
-sudo apt install python3-jedi
+sudo apt install --yes python3-pynvim
+sudo apt install --yes python3-jedi
 
 sudo mkdir -p /root/.config/
 sudo ln -s -f ${NVIM_CONFIG} /root/.config/nvim
