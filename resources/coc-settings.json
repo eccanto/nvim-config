@@ -6,6 +6,7 @@
   "diagnostic.hintSign": "",
   "coc.preferences.enableMessageDialog": true,
   "dialog.floatBorderHighlight": "FloatBorder",
+  "java.compile.nullAnalysis.mode": "automatic",
   "colors.enable": true,
   "suggest.floatConfig": {
     "border": true,
