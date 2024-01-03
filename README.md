@@ -57,6 +57,7 @@ bash install.sh
 | <leader>wc              | [split] close window                                                                   |
 | <leader>wd              | [split] open diagnostics window                                                        |
 | Ctrl+d                  | [multi-cursor] find next ocurrence                                                     |
+| [selected] ~            | [multi-cursor] change case (lower to upper or lower to upper)                          |
 | [selected] n            | [multi-cursor] select next ocurrence                                                   |
 | [selected] N            | [multi-cursor] select previous ocurrence                                               |
 | [selected] q            | [multi-cursor] skip current and get next occurrence                                    |
