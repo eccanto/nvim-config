@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
+set -xeuo pipefail
 
 RED="31"
 GREEN="32"
@@ -83,8 +83,8 @@ fi
 # install clangd
 if ! command -v clangd &> /dev/null; then
     echo -e "${BOLDGREEN}installing clangd...${ENDCOLOR}"
-    sudo apt-get install clangd-16
-    sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-16 100
+    sudo apt-get install clangd-15
+    sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-15 100
 fi
 
 # install bash-language-server
