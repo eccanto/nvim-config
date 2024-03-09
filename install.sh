@@ -83,8 +83,13 @@ fi
 # install clangd
 if ! command -v clangd &> /dev/null; then
     echo -e "${BOLDGREEN}installing clangd...${ENDCOLOR}"
-    sudo apt-get install clangd-15
-    sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-15 100
+
+    clang_version=$(
+        apt search clang 2> /dev/null | grep -Eo "^clang-[0-9]+/" | grep -o 'clang-[0-9]\+' | sort -V | tail -n 1
+    )
+
+    sudo apt-get install ${clang_version}
+    sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/${clang_version} 100
 fi
 
 # install bash-language-server
