@@ -10,6 +10,11 @@ ENDCOLOR="\e[0m"
 
 NVIM_CONFIG=$(realpath ~/.config/nvim)
 
+function get_os() {
+    version=$(grep -E '^(VERSION|NAME)=' /etc/os-release | sed 's/^\(NAME\|VERSION\)=//g' | tr -d '"')
+    echo ${version}
+}
+
 function install_nvim() {
     wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.tar.gz -O- | sudo tar zxvf - -C /usr/local --strip=1
 
@@ -22,28 +27,51 @@ function install_nvim() {
     sudo ln -s /usr/local/bin/nvim /usr/bin/vim
 }
 
+
+os_name=$(get_os)
+
 # jq
 if ! command -v jq &> /dev/null; then
     echo -e "${BOLDGREEN}installing jq...${ENDCOLOR}"
-    sudo apt install --yes jq
+
+    if [[ ${os_name} == Ubuntu* ]]; then
+        sudo apt install --yes jq
+    elif [[ ${os_name} == Manjaro* ]]; then
+        sudo pacman -S jq
+    fi
 fi
 
 # ripgrep
 if ! command -v rg &> /dev/null; then
     echo -e "${BOLDGREEN}installing ripgrep...${ENDCOLOR}"
-    sudo apt install --yes ripgrep
+
+    if [[ ${os_name} == Ubuntu* ]]; then
+        sudo apt install --yes ripgrep
+    elif [[ ${os_name} == Manjaro* ]]; then
+        sudo pacman -S ripgrep
+    fi
 fi
 
 # fd-find
 if ! command -v fdfind &> /dev/null; then
     echo -e "${BOLDGREEN}installing fd-find...${ENDCOLOR}"
-    sudo apt install --yes fd-find
+
+    if [[ ${os_name} == Ubuntu* ]]; then
+        sudo apt install --yes fd-find
+    elif [[ ${os_name} == Manjaro* ]]; then
+        sudo pacman -S fd
+    fi
 fi
 
 # xclip
 if ! command -v xclip &> /dev/null; then
     echo -e "${BOLDGREEN}installing xclip...${ENDCOLOR}"
-    sudo apt install --yes xclip
+
+    if [[ ${os_name} == Ubuntu* ]]; then
+        sudo apt install --yes xclip
+    elif [[ ${os_name} == Manjaro* ]]; then
+        sudo pacman -S xclip
+    fi
 fi
 
 # mdr
@@ -84,12 +112,16 @@ fi
 if ! command -v clangd &> /dev/null; then
     echo -e "${BOLDGREEN}installing clangd...${ENDCOLOR}"
 
-    clang_version=$(
-        apt search clang 2> /dev/null | grep -Eo "^clang-[0-9]+/" | grep -o 'clang-[0-9]\+' | sort -V | tail -n 1
-    )
+    if [[ ${os_name} == Ubuntu* ]]; then
+        clang_version=$(
+            apt search clang 2> /dev/null | grep -Eo "^clang-[0-9]+/" | grep -o 'clang-[0-9]\+' | sort -V | tail -n 1
+        )
 
-    sudo apt-get install ${clang_version}
-    sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/${clang_version} 100
+        sudo apt-get install ${clang_version}
+        sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/${clang_version} 100
+    elif [[ ${os_name} == Manjaro* ]]; then
+        sudo pacman -S clang
+    fi    
 fi
 
 # install bash-language-server
@@ -120,8 +152,13 @@ echo -e "${BOLDGREEN}configuring neovim...${ENDCOLOR}"
 git clone https://github.com/eccanto/starter.git ~/.config/nvim --depth 1
 
 # python plugins
-sudo apt install --yes python3-pynvim
-sudo apt install --yes python3-jedi
+if [[ ${os_name} == Ubuntu* ]]; then
+    sudo apt install --yes python3-pynvim
+    sudo apt install --yes python3-jedi
+elif [[ ${os_name} == Manjaro* ]]; then
+    sudo pacman -S python-pynvim
+    sudo pacman -S python-jedi
+fi 
 
 sudo mkdir -p /root/.config/
 sudo ln -s -f ${NVIM_CONFIG} /root/.config/nvim
